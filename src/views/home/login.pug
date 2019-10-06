@@ -1,0 +1,76 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(name='description', content='')
+        meta(name='author', content='')
+        title Login - Medilab+ Clinic
+        link(href='/css/theme.css', rel='stylesheet')
+        link(href='/css/colors/purple-dark.css', rel='stylesheet')
+        link(href='/css/common.css', rel='stylesheet')
+        link(href='/assets/css/bootstrap.min.css', rel='stylesheet')
+        link(href='/css/login.css', rel='stylesheet')
+    body
+        .wrapper
+            .container
+                h1.text-white.font-weight-bold Medilab+ Clinic
+                form#loginform.form-horizontal.form-material.bg-light.shadow.p-md-5.p-4.mx-3.mx-md-auto(action='/login', novalidate='', method='post', accept-charset='utf-8' )
+                    h3.text-dark Sign In
+                    .form-group
+                        .col-xs-12
+                            input.form-control(type='email', required, placeholder='Email', name='email')
+                            p.help-block
+                    .form-group
+                        .col-xs-12
+                            input.form-control(type='password', required, placeholder='Password', name='password')
+                            p.help-block
+                    .form-group.text-center.m-t-20
+                        .col-xs-12
+                            button.btn.btn-lg.btn-block.text-uppercase.waves-effect.waves-light.loginBtn(type='submit' )
+                                b Log In
+                    .form-group
+                        .d-flex.no-block.align-items-center
+                            .ml-auto
+                                a#to-recover.text-muted(href='javascript:void(0)')
+                                    i.fa.fa-lock.m-r-5
+                                    |  Forgot password?
+                    .form-group.m-b-0.text-dark
+                        .col-sm-12.text-center
+                            | Don't have an account?
+                            a.text-info.m-l-5(href='/apply')
+                                b Apply
+                form#recoverform.form-horizontal.form-material.bg-light.shadow.p-md-5.p-4.mx-3.mx-md-auto(action='/login')
+                    .form-group
+                        .col-xs-12.text-center
+                            h3 Recover Password
+                            p.text-muted.text-center Enter your Email and instructions will be sent to you!
+                    .form-group
+                        .col-xs-12
+                            input.form-control(type='text', required='', placeholder='Email')
+                    .form-group.text-center.m-t-20
+                        .col-xs-12
+                            button.btn.btn-info.btn-lg.btn-block.text-uppercase.waves-effect.waves-light(type='submit') Reset
+                    .form-group
+                        .d-flex.no-block.align-items-center
+                            .ml-auto
+                                a#from-recover.text-muted(href='javascript:void(0)')
+                                    i.fa.fa-key.m-r-5
+                                    |  Login
+                    .form-group.m-b-0.text-dark
+                        .col-sm-12.text-center
+                            | Don't have an account?
+                            a.text-info.m-l-5(href='/apply')
+                                b Apply
+            ul.bg-bubbles
+                li
+                li
+                li
+                li
+                li
+                li
+                li
+                li
+                li
+                li

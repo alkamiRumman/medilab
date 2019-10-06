@@ -1,0 +1,389 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		title Home | Medilab Clinic
+		meta(name="description" content="Amin community Clinic care.")
+		meta(name="keywords" content="Amin, Best Clinic in bangladesh, Amin Community Clinic")
+		link(rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal")
+		link(rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css")
+		link(rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css")
+		link(rel="stylesheet" type="text/css" href="assets/css/style.css")
+	body#myPage(data-spy="scroll" data-target=".navbar" data-offset="60")
+		// banner
+		section#banner.banner
+			.bg-color
+				nav.navbar.navbar-default.navbar-fixed-top
+					.container
+						.col-md-12
+							.navbar-header
+								button.navbar-toggle(type="button" data-toggle="collapse" data-target="#myNavbar")
+									span.icon-bar
+									span.icon-bar
+									span.icon-bar
+								a.navbar-brand(href="#")
+									img.img-responsive(src="assets/img/logo.png" style="width: 140px; margin-top: -16px;")
+							#myNavbar.collapse.navbar-collapse.navbar-right
+								ul.nav.navbar-nav
+									li.active
+										a(href="#banner") Home
+									li
+										a(href="#service") Services
+									li
+										a(href="#about") About
+									li
+										a(href="#testimonial") Testimonial
+									li
+										a(href="#contact") Contact
+									li
+										a(href="/login") Login
+				.container
+					.row
+						.banner-info
+							.banner-logo.text-center
+								img.img-responsive(src="assets/img/logo.png")
+							.banner-text.text-center
+								h1.white Healthcare at your desk!!
+								h3.white House #40, Road #01, Sector #06, Uttara, Dhaka-1230
+								br
+								a.btn.btn-appoint(href="#contact") Make an Appointment.
+							.overlay-detail.text-center
+								a(href="#service")
+									i.fa.fa-angle-down
+		// / banner
+		// service
+		section#service.section-padding
+			.container
+				.row
+					.col-md-4.col-sm-4
+						h2.ser-title Our Service
+						hr.botm-line
+						p
+							| We look forward to getting to know you and to serving your health needs. Please click on the appropriate
+							| link to meet our provider and contact them to set up an appointment or consultation.
+					.col-md-4.col-sm-4
+						.service-info
+							.icon
+								i.fa.fa-stethoscope
+							.icon-info
+								h4 24 Hour Support
+						.service-info
+							.icon
+								i.fa.fa-ambulance
+							.icon-info
+								h4 Emergency Services
+					.col-md-4.col-sm-4
+						.service-info
+							.icon
+								i.fa.fa-user-md
+							.icon-info
+								h4 Medical Counseling
+						.service-info
+							.icon
+								i.fa.fa-medkit
+							.icon-info
+								h4 Premium Healthcare
+		// / service
+		// cta
+		section#cta-1.section-padding
+			.container
+				.row
+					.schedule-tab
+						.col-md-4.col-sm-4.bor-left
+							.mt-boxy-color
+							.medi-info
+								h3 Emergency Case
+								p
+									| I am text block. Edit this text from Appearance / Customize / Homepage header columns. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								a.medi-info-btn(href="#") READ MORE
+						.col-md-4.col-sm-4
+							.medi-info
+								h3 Emergency Case
+								p
+									| I am text block. Edit this text from Appearance / Customize / Homepage header columns. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								a.medi-info-btn(href="#") READ MORE
+						.col-md-4.col-sm-4.mt-boxy-3
+							.mt-boxy-color
+							.time-info
+								h3 Opening Hours
+								table(style="margin: 8px 0px 0px;" border="1")
+									tbody
+										tr
+											td Monday - Friday
+											td 8.00 - 17.00
+										tr
+											td Saturday
+											td 9.30 - 17.30
+										tr
+											td Sunday
+											td 9.30 - 15.00
+		// cta
+		// about
+		section#about.section-padding
+			.container
+				.row
+					.col-md-3.col-sm-4.col-xs-12
+						.section-title
+							h2.head-title.lg-line
+								| The Medilap
+								br
+								| Ultimate Dream
+							hr.botm-line
+							p.sec-para
+								| Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..
+							a(href="" style="color: #0cb8b6; padding-top:10px;") Know more..
+					.col-md-9.col-sm-8.col-xs-12
+						.col-sm-9.more-features-box(style="visibility: visible;")
+							.more-features-box-text
+								.more-features-box-text-icon
+									i.fa.fa-angle-right(aria-hidden="true")
+								.more-features-box-text-description
+									h3 It's something important you want to know.
+									p
+										| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. Ut wisi enim ad minim veniam, quis nostrud.
+							.more-features-box-text
+								.more-features-box-text-icon
+									i.fa.fa-angle-right(aria-hidden="true")
+								.more-features-box-text-description
+									h3 It's something important you want to know.
+									p
+										| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. Ut wisi enim ad minim veniam, quis nostrud.
+		// / about
+		// doctor team
+		section#doctor-team.section-padding
+			.container
+				.row
+					.col-md-12
+						h2.ser-title Meet Our Doctors!
+						hr.botm-line
+					.col-md-3.col-sm-3.col-xs-6
+						.thumbnail
+							img.team-img(src="assets/img/doctor1.jpg" alt="...")
+							.caption
+								h3 Jessica Wally
+								p Doctor
+								ul.list-inline
+									li
+										a(href="#")
+											i.fa.fa-facebook
+									li
+										a(href="#")
+											i.fa.fa-twitter
+									li
+										a(href="#")
+											i.fa.fa-google-plus
+					.col-md-3.col-sm-3.col-xs-6
+						.thumbnail
+							img.team-img(src="assets/img/doctor2.jpg" alt="...")
+							.caption
+								h3 Iai Donas
+								p Doctor
+								ul.list-inline
+									li
+										a(href="#")
+											i.fa.fa-facebook
+									li
+										a(href="#")
+											i.fa.fa-twitter
+									li
+										a(href="#")
+											i.fa.fa-google-plus
+					.col-md-3.col-sm-3.col-xs-6
+						.thumbnail
+							img.team-img(src="assets/img/doctor3.jpg" alt="...")
+							.caption
+								h3 Amanda Denyl
+								p Doctor
+								ul.list-inline
+									li
+										a(href="#")
+											i.fa.fa-facebook
+									li
+										a(href="#")
+											i.fa.fa-twitter
+									li
+										a(href="#")
+											i.fa.fa-google-plus
+					.col-md-3.col-sm-3.col-xs-6
+						.thumbnail
+							img.team-img(src="assets/img/doctor4.jpg" alt="...")
+							.caption
+								h3 Jason Davis
+								p Doctor
+								ul.list-inline
+									li
+										a(href="#")
+											i.fa.fa-facebook
+									li
+										a(href="#")
+											i.fa.fa-twitter
+									li
+										a(href="#")
+											i.fa.fa-google-plus
+		// / doctor team
+		// testimonial
+		section#testimonial.section-padding
+			.container
+				.row
+					.col-md-12
+						h2.ser-title see what patients are saying?
+						hr.botm-line
+					.col-md-4.col-sm-4
+						.testi-details
+							// Paragraph
+							p
+								| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						.testi-info
+							// User Image
+							a(href="#")
+								img.img-responsive(src="assets/img/thumb.png" alt="")
+							// User Name
+							h3
+								| Alex
+								span Texas
+					.col-md-4.col-sm-4
+						.testi-details
+							// Paragraph
+							p
+								| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						.testi-info
+							// User Image
+							a(href="#")
+								img.img-responsive(src="assets/img/thumb.png" alt="")
+							// User Name
+							h3
+								| Alex
+								span Texas
+					.col-md-4.col-sm-4
+						.testi-details
+							// Paragraph
+							p
+								| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						.testi-info
+							// User Image
+							a(href="#")
+								img.img-responsive(src="assets/img/thumb.png" alt="")
+							// User Name
+							h3
+								| Alex
+								span Texas
+		// / testimonial
+		// cta 2
+		section#cta-2.section-padding
+			.container
+				.row
+					.col-md-2
+					.text-right-md.col-md-4.col-sm-4
+						h2.section-title.white.lg-line
+							| « A few words
+							br
+							|  about us »
+					.col-md-4.col-sm-5
+						| Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a typek
+						p.text-right.text-primary
+							i — Medilap Healthcare
+					.col-md-2
+		// cta
+		// contact
+		section#contact.section-padding
+			.container
+				.row
+					.col-md-12
+						h2.ser-title Contact us
+						hr.botm-line
+					.col-md-4.col-sm-4
+						h3 Contact Info
+						.space
+						p
+							i.fa.fa-map-marker.fa-fw.pull-left.fa-2x
+							| House #40, Road #01, Sector #06,
+							br
+							|  Uttara, Dhaka-1230
+						.space
+						p
+							i.fa.fa-envelope-o.fa-fw.pull-left.fa-2x
+							| info@medilab.com
+						.space
+						p
+							i.fa.fa-phone.fa-fw.pull-left.fa-2x
+							| +880 1800231234
+							br
+							| +880 1741490950
+					.col-md-8.col-sm-8.marb20
+						.contact-info
+							h3.cnt-ttl Having Any Query! Or Book an appointment
+							.space
+							#sendmessage Your message has been sent. Thank you!
+							#errormessage
+							form.contactForm(action="" method="post" role="form")
+								.form-group
+									input#name.form-control.br-radius-zero(type="text" name="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars")
+									.validation
+								.form-group
+									input#email.form-control.br-radius-zero(type="email" name="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email")
+									.validation
+								.form-group
+									input#subject.form-control.br-radius-zero(type="text" name="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject")
+									.validation
+								.form-group
+									textarea.form-control.br-radius-zero(name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message")
+									.validation
+								.form-action
+									button.btn.btn-form(type="submit") Send Message
+		// / contact
+		// footer
+		footer#footer
+			.top-footer
+				.container
+					.row
+						.col-md-4.col-sm-4.marb20
+							.ftr-tle
+								h4.white.no-padding About Us
+							.info-sec
+								p
+									| Praesent convallis tortor et enim laoreet, vel consectetur purus latoque penatibus et dis parturient.
+						.col-md-4.col-sm-4.marb20
+							.ftr-tle
+								h4.white.no-padding Quick Links
+							.info-sec
+								ul.quick-info
+									li
+										a(href="index.html")
+											i.fa.fa-circle
+											| Home
+									li
+										a(href="#service")
+											i.fa.fa-circle
+											| Service
+									li
+										a(href="#contact")
+											i.fa.fa-circle
+											| Appointment
+						.col-md-4.col-sm-4.marb20
+							.ftr-tle
+								h4.white.no-padding Follow us
+							.info-sec
+								ul.social-icon
+									li.bglight-blue
+										i.fa.fa-facebook
+									li.bgred
+										i.fa.fa-google-plus
+									li.bgdark-blue
+										i.fa.fa-linkedin
+									li.bglight-blue
+										i.fa.fa-twitter
+			.footer-line
+				.container
+					.row
+						.col-md-12.text-center
+							| © Copyright Medilab Clinic. All Rights Reserved
+							.credits
+								| Designed by
+								a(href="https://bootstrapmade.com/") BootstrapMade.com
+		// / footer
+		script(src="assets/js/jquery.min.js")
+		script(src="assets/js/jquery.easing.min.js")
+		script(src="assets/js/bootstrap.min.js")
+		script(src="assets/js/custom.js")
+		script(src="assets/contactform/contactform.js")
