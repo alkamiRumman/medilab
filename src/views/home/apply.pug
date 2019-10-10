@@ -7,13 +7,14 @@ html(lang='en')
         meta(name='description', content='')
         meta(name='author', content='rumman <alkami778@gmail.com>')
         title Apply - Medilab+ Clinic
-        link(href='/assets/css/bootstrap.min.css', rel='stylesheet')
+        //link(href='/plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet')
         link(href='/css/theme.css', rel='stylesheet')
         link(href='/css/colors/purple-dark.css', rel='stylesheet')
-        link(href='/assets/toastr/toastr.min.css', rel='stylesheet')
         link(href='/css/common.css', rel='stylesheet')
         link(href='/css/login.css', rel='stylesheet')
-
+        script(src='/plugins/jquery/jquery.js')
+        script.
+            var notifications = !{JSON.stringify(notifications)};
     body
         .wrapper
             .container
@@ -24,14 +25,13 @@ html(lang='en')
                         .col-6
                             input.form-control(type='text' placeholder='Enter Name' required name='name')
                     .form-group
-                        .col-12
+                        .col-6
                             input.form-control.checkUserAllEmail(placeholder='Enter Email' name='email' type='email' required data-rule-checkUserEmailAvailability='all')
                     .form-group
-                        .col-12
+                        .col-6
                             input.form-control(type='password' placeholder='Password' name='password' required minlength='4')
                     .form-group
-                        .col-12
-                            label.form-control(for='designation') Designation
+                        .col-6.text-center
                             select#designation.form-control(name='designation')
                                 option(value='doctor') Doctor
                                 option(value='receptionist') Receptionist
@@ -57,15 +57,6 @@ html(lang='en')
                 li
                 li
                 li
-        script(src='/plugins/jquery/jquery.min.js')
-        script(src='/plugins/popper/popper.min.js')
-        script(src='/plugins/bootstrap/js/bootstrap.min.js')
-        script(src='/plugins/slimScroll/jquery.slimscroll.js')
-        script(src='/js/theme.js')
-        // Page JS
-        script(src="/plugins/jquery-validation/jquery.validate.min.js")
-        script(src="/plugins/jquery-validation/additional-methods.min.js")
-        script(src='/plugins/toastr/toastr.min.js')
-        script(src='/plugins/pace/pace.min.js')
-        script(src='/js/scripts.js')
-        script.
+    script(src='/js/theme.js')
+    script(src='/js/scripts.js')
+    script.

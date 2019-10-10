@@ -1,0 +1,26 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(name='description', content='')
+        meta(name='author', content='rumman <alkami778@gmail.com>')
+        title Receptionist - Medilab+ Clinic
+        link(href='/css/theme.css', rel='stylesheet')
+        link(href='/css/colors/purple-dark.css', rel='stylesheet')
+        link(href='/css/common.css', rel='stylesheet')
+        link(href='/css/login.css', rel='stylesheet')
+        script(src='/plugins/jquery/jquery.js')
+        script.
+            var notifications = !{JSON.stringify(notifications ? notifications : [])};
+    body
+        .wrapper
+            .container
+                h1 hello Receptionist
+                a(href='/logout')
+                    i.fa.fa-power-off
+                    |  Logout
+    script(src='/js/theme.js')
+    script(src='/js/scripts.js')
+    script.

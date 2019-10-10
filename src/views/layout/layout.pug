@@ -1,0 +1,39 @@
+-
+    var $SESSION=__SESSION
+    var $breadCrumb=__breadCrumb
+
+doctype html
+html(lang='en')
+    include header
+    +header
+    body.fix-header.fix-sidebar.card-no-border
+        .preloader(style='background: rgba(255, 255, 255, 0.5);')
+            svg.circular(viewBox='25 25 50 50')
+                circle.path(cx='50', cy='50', r='20', fill='none', stroke-width='2', stroke-miterlimit='10')
+        #main-wrapper
+            include ../navbar
+            +navbar
+            .page-wrapper
+                .container-fluid
+                    .row.page-titles.px-md-2
+                        if $breadCrumb
+                            .col.align-self-center
+                                h3.text-themecolor.m-b-0.m-t-0 !{$breadCrumb.title}
+                                ol.breadcrumb
+                                    each  bcItem in $breadCrumb.items
+                                        if bcItem.link
+                                            li.breadcrumb-item.active
+                                                a(href=makeUrl(bcItem.link))=bcItem.text
+                                        else
+                                            li.breadcrumb-item=bcItem.text
+                        .col.align-self-center
+                            .d-flex.m-t-10.justify-content-end
+                                .btn-group.dropleft
+                                    block topRightContent
+                                    //button.btn.btn-themecolor
+                    block content
+            footer.footer
+                | &copy; !{new Date().getFullYear()} Medilab+ Clinic by&nbsp;
+                a(target='__blank' href='#') rumman
+    include footer
+    +footer

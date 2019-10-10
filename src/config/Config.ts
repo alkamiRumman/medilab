@@ -1,4 +1,5 @@
 import {FileProperty} from "../schema/FileProperty";
+import {Notification} from "./Notification";
 
 export enum METHOD {
 	POST = 'POST',
@@ -12,6 +13,7 @@ export class Config {
 	public view?: string;
 	public data?: object = {};
 	public breadCrumb?: BreadCrumb.Menu;
+	public notification?: Array<Notification> = new Array<Notification>();
 }
 
 export function MakeFileProperty(file: Express.Multer.File, dir: string): FileProperty {

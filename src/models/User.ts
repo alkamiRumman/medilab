@@ -1,8 +1,10 @@
-import {Indexed, Model, ObjectID} from "@tsed/mongoose";
+import {Default, Email, Enum, Format, IgnoreProperty, Property, PropertyType} from "@tsed/common";
+import {Indexed, Model, ObjectID, Ref, Schema} from "@tsed/mongoose";
 import {Types} from "mongoose";
-import {Email, Property, PropertyType} from "@tsed/common";
+
 
 @Model({
+	collection: "user",
 	schemaOptions: {
 		timestamps: {
 			createdAt: false,
@@ -17,13 +19,21 @@ export class User {
 	@Property()
 	name: string;
 
-	@Indexed(true)
-	@Email()
-	email: string;
+	@Property()
+	designation: string;
 
 	@Property()
 	password: string;
 
+	@Indexed(true)
+	@Email()
+	email: string;
+
+	@PropertyType(Boolean)
+	flag: boolean;
+
 	@Property()
-	designation: string;
+	isDesignation: string;
+
+
 }

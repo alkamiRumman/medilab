@@ -1,0 +1,128 @@
+.clickable tbody tr {
+	cursor: pointer;
+}
+
+.clickable tbody tr:hover {
+	color: blue;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	/* display: none; <- Crashes Chrome on hover */
+	-webkit-appearance: none;
+	margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.daterangepicker select {
+	background: #eee;
+	border: 1px solid #eee;
+}
+
+.modal-content, .modal-header, .modal-footer {
+	border-radius: unset !important;
+}
+
+.dataTables_processing {
+	z-index: 99999;
+	background-color: white;
+}
+
+.btn {
+	border-radius: unset !important;
+}
+
+input[type=number] {
+	-moz-appearance: textfield; /* Firefox */
+}
+
+.thumb-xxl {
+	height: 175px;
+	width: 175px;
+}
+
+.page-titles {
+	margin-bottom: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+tiny,
+.tiny {
+	font-size: 11px;
+	font-weight: 400;
+}
+
+.tiny.dropdown-menu {
+	padding: 1px;
+	border-radius: unset;
+	min-width: 100px;
+}
+
+.tiny .dropdown-item {
+	padding: 5px 10px;
+	color: black;
+}
+
+.ta-btn, .ta-btn-dd {
+	padding: 7px;
+	vertical-align: center;
+	text-align: center;
+	color: #0056b3;
+	border-color: #0056b3;
+}
+
+.ta-btn:hover, .ta-btn-dd:hover {
+	background: #0a0a0a;
+	color: #fff;
+	text-decoration: underline;
+}
+
+.ta-btn:focus, .ta-btn.focus {
+	text-decoration: underline;
+	box-shadow: none;
+}
+
+.ta-btn-dd {
+	font-size: 20px;
+	/*background: #fb3a3a;
+	border-color: #fb3a3a;*/
+	padding: 0px .6rem !important;
+}
+
+pre {
+	background-color: ghostwhite;
+	border: 1px solid silver;
+	padding: 10px 20px;
+}
+
+.json-key {
+	color: brown;
+}
+
+.json-value {
+	color: navy;
+}
+
+.json-string {
+	color: olive;
+}
+
+.bg-none {
+	background: none !important;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.help {
+	cursor: help;
+}
+
+.checkCompanyAllEmail.checkCompanySelfEmail.checkUserAllEmail.checkUserSelfEmail
+.dateTime.date.currentDateTime.todayDate.hasDateTime.hasDate {
+}
+
+.error {
+	color: red;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "font-icon",
+  "homepage": "https://github.com/brrinta/trioQuadPos",
+  "authors": [
+    "brrinta <brrinta@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fontawesome": "^5.9.0"
+  }
+}

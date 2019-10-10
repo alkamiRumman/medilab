@@ -10,21 +10,26 @@ html(lang='en')
         link(href='/css/theme.css', rel='stylesheet')
         link(href='/css/colors/purple-dark.css', rel='stylesheet')
         link(href='/css/common.css', rel='stylesheet')
-        link(href='/assets/css/bootstrap.min.css', rel='stylesheet')
+        link(href='/plugins/css/bootstrap.min.css', rel='stylesheet')
+        link(href='/plugins/toastr/toastr.min.css', rel='stylesheet')
         link(href='/css/login.css', rel='stylesheet')
+        script(src='/plugins/jquery/jquery.js')
+        script.
+            var notifications = !{JSON.stringify(notifications ? notifications : [])};
     body
         .wrapper
             .container
                 h1.text-white.font-weight-bold Medilab+ Clinic
                 form#loginform.form-horizontal.form-material.bg-light.shadow.p-md-5.p-4.mx-3.mx-md-auto(action='/login', novalidate='', method='post', accept-charset='utf-8' )
                     h3.text-dark Sign In
+                    br
                     .form-group
                         .col-xs-12
-                            input.form-control(type='email', required, placeholder='Email', name='email')
+                            input.form-control(type='email', required, placeholder='Enter Email', name='email')
                             p.help-block
                     .form-group
                         .col-xs-12
-                            input.form-control(type='password', required, placeholder='Password', name='password')
+                            input.form-control(type='password', required, placeholder='Enter Password', name='password')
                             p.help-block
                     .form-group.text-center.m-t-20
                         .col-xs-12
@@ -36,6 +41,12 @@ html(lang='en')
                                 a#to-recover.text-muted(href='javascript:void(0)')
                                     i.fa.fa-lock.m-r-5
                                     |  Forgot password?
+                    .form-group.m-b-0.text-dark
+                        .col-sm-12.text-center
+                            | Go to website
+                            a.text-info.m-l-5(href='/')
+                                b Go
+                    br
                     .form-group.m-b-0.text-dark
                         .col-sm-12.text-center
                             | Don't have an account?
@@ -63,6 +74,11 @@ html(lang='en')
                             | Don't have an account?
                             a.text-info.m-l-5(href='/apply')
                                 b Apply
+                    .form-group.m-b-0.text-dark
+                        .col-sm-12.text-center
+                            | Don't have an account?
+                            a.text-info.m-l-5(href='/')
+                                b Website
             ul.bg-bubbles
                 li
                 li
@@ -74,3 +90,13 @@ html(lang='en')
                 li
                 li
                 li
+    script(src='/plugins/jquery/jquery.min.js')
+    script(src='/plugins/popper/popper.min.js')
+    script(src='/plugins/bootstrap/js/bootstrap.min.js')
+    script(src='/plugins/slimScroll/jquery.slimscroll.js')
+    script(src='/js/theme.js')
+    script(src="/plugins/jquery-validation/jquery.validate.min.js")
+    script(src="/plugins/jquery-validation/additional-methods.min.js")
+    script(src='/plugins/toastr/toastr.min.js')
+    script(src='/js/scripts.js')
+    script.

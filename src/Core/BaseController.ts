@@ -1,6 +1,7 @@
 import {Constant, Req, Res} from "@tsed/common";
 import {Mongo} from "../services/Mongo";
 import {Config} from "../config/Config";
+import {Notification} from "../config/Notification";
 
 //"success" || "info" || "warning" || "danger",
 
@@ -24,6 +25,8 @@ export default class BaseController {
 
 	public async render(req: Req, res: Res) {
 		this.config.data["baseUrl"] = process.env.baseUrl;
+		this.config.data['notifications'] = this.config.notification;
+		this.config.notification = new Array<Notification>();
 		this.config.data["__breadCrumb"] = undefined;
 		if (this.config.breadCrumb) {
 			this.config.data["__breadCrumb"] = this.config.breadCrumb;
