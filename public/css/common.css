@@ -126,3 +126,7 @@ pre {
 .error {
 	color: red;
 }
+
+img.profile-pic{
+	height: 45px;
+}

@@ -1,146 +1,69 @@
 mixin navbar
-	header.topbar
-		nav.navbar.top-navbar.navbar-expand-md.navbar-light
-			.navbar-header
-				a.navbar-brand(href=makeUrl('/'))
-					b
-						img.dark-logo(alt="ezbizsol", height='50', src="/images/icon/ebs.svg")
-						img.light-logo(alt="ezbizsol", height='50', src="/images/icon/ebs.svg")
-					span
-						img.dark-logo(alt="ezbizsol", height='30', src="/images/ezbizsol.png")
-						img.light-logo(alt="ezbizsol", height='30', src="/images/ezbizsol.png")
-			.navbar-collapse
-				ul.navbar-nav.mr-auto.mt-md-0
-					li.nav-item
-						a.nav-link.nav-toggler.hidden-md-up.text-muted.waves-effect.waves-dark(href='javascript:void(0)')
-							i.mdi.mdi-menu
-					li.nav-item
-						a.nav-link.sidebartoggler.hidden-sm-down.text-muted.waves-effect.waves-dark(href='javascript:void(0)')
-							i.ti-menu
-
-				ul.navbar-nav.my-lg-0
-					li.nav-item.dropdown
-						a.nav-link.dropdown-toggle.text-muted.text-muted.waves-effect.waves-dark(href='', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-							i.mdi.mdi-message
-							.notify
-								span.heartbit
-								span.point
-						.dropdown-menu.dropdown-menu-right.mailbox.scale-up
-							ul
-								li
-									.drop-title Notifications
-								li
-									.message-center
-										// Message
-										a(href='#')
-											.btn.btn-danger.btn-circle
-												i.fa.fa-link
-											.mail-contnet
-												h5 Luanch Admin
-												span.mail-desc Just see the my new admin!
-												span.time 9:30 AM
-								li
-									a.nav-link.text-center(href='javascript:void(0);')
-										strong Check all notifications
-										i.fa.fa-angle-right
-					li.nav-item.dropdown
-						a#2.nav-link.dropdown-toggle.text-muted.waves-effect.waves-dark(href='', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-							i.mdi.mdi-email
-							.notify
-								span.heartbit
-								span.point
-						.dropdown-menu.mailbox.dropdown-menu-right.scale-up(aria-labelledby='2')
-							ul
-								li
-									.drop-title You have 4 new messages
-								li
-									.message-center
-										// Message
-										a(href='#')
-											.user-img
-												img.img-circle(src='/images/profile.png', alt='user')
-												span.profile-status.online.pull-right
-											.mail-contnet
-												h5 System Company name
-												span.mail-desc Just see the my admin!
-												span.time 9:30 AM
-								li
-									a.nav-link.text-center(href='javascript:void(0);')
-										strong See all e-Mails
-										i.fa.fa-angle-right
-					li.nav-item.dropdown
-						a.nav-link.dropdown-toggle.text-muted.waves-effect.waves-dark(href='', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-							i.flag-icon.flag-icon-us
-						.dropdown-menu.dropdown-menu-right.scale-up
-							a.dropdown-item(href='#')
-								i.flag-icon.flag-icon-bd
-								|  Bengali
-					li.nav-item.dropdown
-						a.nav-link.dropdown-toggle.text-muted.waves-effect.waves-dark(href='', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-							img.profile-pic(src='/images/profile.png', alt='user')
-						.dropdown-menu.dropdown-menu-right.scale-up
-							ul.dropdown-user
-								li
-									.dw-user-box
-										.u-img
-											img(src='/images/profile.png', alt='user')
-										.u-text
-											h4 !{$SESSION.user.name}
-											p.text-muted !{$SESSION.user.email}
-											span.w-100.text-danger !{$SESSION.permission.userType}
-								li
-									a(href='/user/profile')
-										i.ti-settings
-										|  Account Setting
-								li.divider(role='separator')
-								li
-									a(href='/logout')
-										i.fa.fa-power-off
-										|  Logout
-	aside.left-sidebar
-		.scroll-sidebar
-			.user-profile(style="background:url('/images/background/user-info.jpg')")
-				.profile-img
-					img(src=($SESSION.company.logo ? $SESSION.company.logo.path : '/images/logo.png'), alt='user')
-				.profile-text.strong.h5
-					a.dropdown-toggle.link.u-dropdown(href='#', data-toggle='dropdown', role='button', aria-haspopup='true',
-						style="color:#fff !important;",
-						aria-expanded='true')
-						| !{$SESSION.company.name}
-						span.caret
-					.dropdown-menu.animated.flipInY
-						a.dropdown-item(href='#')
-							i.ti-wallet
-							|  My Balance
-						.dropdown-divider
-						a.dropdown-item(href='/logout')
-							i.fa.fa-power-off
-							|  Logout
-			nav.sidebar-nav
-				ul#sidebarnav
-					//li.nav-small-cap PERSONAL
-					li
-						a(href=makeUrl('/'), aria-expanded='false')
-							i.fa.fa-circle
-							span.hide-menu Dashboard
-					li
-						a(href=makeUrl('/'), aria-expanded='false')
-							i.fa.fa-users
-							span.hide-menu Clients
-						ul.collapse(aria-expanded='false')
-							li
-								a(href='/sys/company/add') Add Company
-							li
-								a(href='/sys/company/') Company List
-					li
-						a.has-arrow(href='#', aria-expanded='false')
-							i.fa.fa-cogs
-							span.hide-menu Settings
-						ul.collapse(aria-expanded='false')
-							li
-								a(href='/settings') System Settings
-							li
-								a.has-arrow(href='#', aria-expanded='false') Forms
-								ul.collapse(aria-expanded='false')
-									li
-										a(href=makeUrl('/settings/customer')) Customer Form
+	.wrapper
+		// Sidebar
+		nav#sidebar
+			.sidebar-header
+				h3 Medilab Clinic
+				strong MC
+			ul.list-unstyled.components
+				li.active
+					a.dropdown-toggle(href="#homeSubmenu" data-toggle="collapse" aria-expanded="false")
+						i.fas.fa-home
+						| Home
+					ul#homeSubmenu.collapse.list-unstyled
+						li
+							a(href="#") Home 1
+						li
+							a(href="#") Home 2
+						li
+							a(href="#") Home 3
+				li
+					a(href="#")
+						i.fas.fa-briefcase
+						| About
+					a.dropdown-toggle(href="#pageSubmenu" data-toggle="collapse" aria-expanded="false")
+						i.fas.fa-copy
+						| Pages
+					ul#pageSubmenu.collapse.list-unstyled
+						li
+							a(href="#") Page 1
+						li
+							a(href="#") Page 2
+						li
+							a(href="#") Page 3
+				li
+					a(href="#")
+						i.fas.fa-paper-plane
+						| Contact
+			ul.list-unstyled.CTAs
+				li
+					a.download(href="") Download source
+				li
+					a.article(href="") Back to article
+		// Page Content
+		#content
+			nav.navbar.navbar-expand-lg.navbar-light.bg-light
+				.container-fluid
+					button#sidebarCollapse.btn.btn-info(type="button")
+						i.fas.fa-align-left
+						span Toggle Sidebar
+					button.btn.btn-dark.d-inline-block.d-lg-none.ml-auto(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+						i.fas.fa-align-justify
+				button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
+					span.navbar-toggler-icon
+				#navbar-list-4.collapse.navbar-collapse
+					ul.navbar-nav
+						li.nav-item.dropdown
+							a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+								img.profile-pic(src='/images/profile.png', alt='user')
+							.dropdown-menu.dropdown-menu-right.scale-up
+								a.dropdown-item(href="#") Dashboard
+								a.dropdown-item(href="#") Edit Profile
+								a.dropdown-item(href="/logout") Log Out
+			block content
+	script.
+		window.onload = function () {
+			$('#sidebarCollapse').on('click', function () {
+				$('#sidebar').toggleClass('active');
+			});
+		};

@@ -1,10 +1,11 @@
-import {Controller, Get, Post, Req, Res, UseBefore} from "@tsed/common";
+import {Controller, Get, Post, Req, Res, Use, UseBefore} from "@tsed/common";
 import BaseController from "../Core/BaseController";
 import {Mongo} from "../services/Mongo";
 import {User} from "../models/User";
 import {Notification, NotificationType} from "../config/Notification";
 import {Data} from "../config/SessionData";
 import {ifLoggedIn, ifNotLoggedIn} from "../middlewares/SessionCheck";
+import session from "express-session";
 
 @Controller("/")
 export class Home extends BaseController {
@@ -14,6 +15,7 @@ export class Home extends BaseController {
     }
 
     @Get("/")
+    @Use(ifLoggedIn)
     async index(@Res() res: Res, @Req() req: Req) {
         this.config.render = "index";
         await this.render(req, res);
@@ -44,12 +46,7 @@ export class Home extends BaseController {
                         title: "Login Success!"
                     };
                     this.config.notification.push(notification);
-                    if (req.session.oldRequest) {
-                        let url = req.session.oldRequest;
-                        delete req.session.oldRequest;
-                        return res.redirect(url);
-                    }
-                    return res.redirect("/login");
+                    return res.redirect("/receptionist");
                 } else {
                     let notification: Notification = {
                         message: "Username does not registered!",
@@ -62,7 +59,7 @@ export class Home extends BaseController {
             } else {
                 let notification: Notification = {
                     message: "Email or Password doesn't matched!",
-                    type: NotificationType.INFO,
+                    type: NotificationType.ERROR,
                     title: "Login Failed!"
                 };
                 this.config.notification.push(notification);

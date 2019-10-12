@@ -37,7 +37,7 @@ export default class BaseController {
 		if (this.config.render) {
 			return res.render(this.getView(), this.config.data, (err, html) => {
 				if (err) {
-					res.render('error', {error: err});
+					console.log(err)
 				}
 				return res.send(html);
 			});

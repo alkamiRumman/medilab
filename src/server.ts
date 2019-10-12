@@ -74,6 +74,9 @@ export class Server extends ServerLoader {
 			.use(methodOverride());
 		let store = await new MongoDBStore({
 			uri: this.settings.get<MDBConnection>("mongoose").url,
+			connectionOptions: {
+				useNewUrlParser: true
+			},
 			collection: 'sessions',
 			expires: 5 * 60
 		}, function (error) {

@@ -44,7 +44,12 @@ export class ifLoggedIn implements IMiddleware {
 			if (user.isDesination === "receptionist"){
 				return res.redirect("/receptionist");
 			}
-
+			if (user.isDesination === "laboratorist") {
+				return res.redirect("/laboratorist");
+			}
+			if (user.isDesination === "pharmacist"){
+				return res.redirect("/pharmacist");
+			}
 		}
 	}
 }

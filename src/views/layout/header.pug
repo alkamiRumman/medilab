@@ -11,13 +11,9 @@ mixin header
 		link(rel="shortcut icon", type="image/x-icon", href="/images/icon/ebs.svg")
 		link(href='/plugins/bootstrap/css/bootstrap.min.css', rel="stylesheet")
 		link(href='/plugins/toastr/toastr.min.css', rel="stylesheet")
+		link(href='/plugins/pace/pace.css', rel='stylesheet')
 		link(href='/css/common.css', rel='stylesheet')
+		link(href='/css/style4.css', rel='stylesheet')
 		//pageCss
 		script.
 			var notifications = !{JSON.stringify(notifications ? notifications : [])};
-			var globalSetting = {
-				baseUrl: '!{makeUrl("")}',
-				makeUrl: function (uri) {
-					return '!{makeUrl('')}' + uri;
-				}
-			};
