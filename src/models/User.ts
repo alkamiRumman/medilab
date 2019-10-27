@@ -30,7 +30,7 @@ export class User {
 	email: string;
 
 	@PropertyType(Boolean)
-	flag: boolean;
+	status: boolean;
 
 	@Property()
 	isDesignation: string;

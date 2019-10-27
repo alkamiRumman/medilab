@@ -1,0 +1,57 @@
+extends ../layout/layout
+block content
+    .content-wrapper
+        section.content-header
+            .header-icon
+            .header-title
+                h4 Medicine Note
+        .content
+            .col-sm-12.col-md-12
+                .card
+                    .card-header
+                        | Create New Medicine Note
+                        .card-body
+                            form(action="create-options.php" method="POST")
+                                input(type="hidden" name="_table" value="advice")
+                                input(type="hidden" name="_page" value="advices.php")
+                                .row
+                                    .col-md-6
+                                        .form-group
+                                            input.form-control(type="text" name="name" placeholder="Name..." value="" required="")
+                                    .col-md-6
+                                        .form-group
+                                            input.form-control(type="text" name="value" placeholder="Value..." value="")
+                                button.btn.btn-success(type="submit") Create
+                .panel.panel-bd
+                    .panel-heading
+                        .panel-title
+                            br
+                            h4 All Medicine Note
+                    .panel-body
+                        .table-responsive
+                            table#adviceTable.table.table-bordered.table-striped.table-hover
+                                thead
+                                    tr
+                                        th SL
+                                        th Name
+                                        th Value
+                                        th Action
+                                tbody
+                                    tr
+                                        td 1
+                                        td 10 Days
+                                        td 10 Days
+                                        td
+                                            a(onclick="return confirm('Are you sure ?');" href="")
+                                                button.btn.btn-success EDIT
+                                            a(onclick="return confirm('Are you sure ?');" href="")
+                                                button.btn.btn-danger DELETE
+                                    tr
+                                        td 2
+                                        td 20 Days
+                                        td 20 Days
+                                        td
+                                            a(onclick="return confirm('Are you sure ?');" href="")
+                                                button.btn.btn-success EDIT
+                                            a(onclick="return confirm('Are you sure ?');" href="")
+                                                button.btn.btn-danger DELETE

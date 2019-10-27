@@ -13,7 +13,13 @@ mixin header
 		link(href='/plugins/toastr/toastr.min.css', rel="stylesheet")
 		link(href='/plugins/pace/pace.css', rel='stylesheet')
 		link(href='/css/common.css', rel='stylesheet')
-		link(href='/css/style4.css', rel='stylesheet')
+		link(href='/css/style.css', rel='stylesheet')
+		link(href='/css/app.css', rel='stylesheet')
+		link(href='/css/icons/fontawesome/css/all.css', rel='stylesheet')
+		script(src='/plugins/jquery/jquery.min.js')
+		//"http://code.jquery.com/jquery-1.10.0.min.js"
+
+
 		//pageCss
 		script.
 			var notifications = !{JSON.stringify(notifications ? notifications : [])};

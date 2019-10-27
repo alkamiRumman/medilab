@@ -68,6 +68,7 @@ export class ifNotDoctor implements IMiddleware {
 	public async use(@Req() req: Req, @Res() res: Res, @Session("user") user: Data) {
 		if (user) {
 			if (user.isDesination != "doctor") {
+				req.session.noSystemAccess = true;
 				return res.redirect("/login");
 			}
 		}
@@ -80,6 +81,7 @@ export class ifNotReceptionist implements IMiddleware {
 	public async use(@Req() req: Req, @Res() res: Res, @Session("user") user: Data) {
 		if (user) {
 			if (user.isDesination != "receptionist") {
+				req.session.noSystemAccess = true;
 				return res.redirect("/login");
 			}
 		}
@@ -91,6 +93,7 @@ export class ifNotLaboratorist implements IMiddleware {
 	public async use(@Req() req: Req, @Res() res: Res, @Session("user") user: Data) {
 		if (user) {
 			if (user.isDesination != "laboratorist") {
+				req.session.noSystemAccess = true;
 				return res.redirect("/login");
 			}
 		}
@@ -102,6 +105,7 @@ export class ifNotPharmacist implements IMiddleware {
 	public async use(@Req() req: Req, @Res() res: Res, @Session("user") user: Data) {
 		if (user) {
 			if (user.isDesination != "pharmacist") {
+				req.session.noSystemAccess = true;
 				return res.redirect("/login");
 			}
 		}

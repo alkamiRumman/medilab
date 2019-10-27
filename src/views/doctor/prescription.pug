@@ -1,0 +1,197 @@
+extends ../layout/layout
+block content
+    .content-wrapper
+        section.content-header
+            .header-title
+                h3.text-center.cover Prescription
+        .content
+            .panel-body
+                form(action="" method="POST")
+                    .row
+                        .col-3
+                            input.form-control(readonly="" type="text" name="prescribe-num" value="" required="")
+                        .col-9
+                            input.form-control.p_name(type="text" placeholder="Name..." name="patient_name" value="" required="")
+                            ul#nameLists(style="display:none;")
+                        .clearfix.col-md-12
+                            br
+                        .col-md-3
+                            input#datePicker.form-control(type="date" placeholder="Date.." name="prescribe-date" required="")
+                        .col-md-3
+                            input.form-control(type="text" placeholder="Age..." name="patient_age" value="" required="")
+                        .col-md-3
+                            select#gender.form-control(name="gender" required="")
+                                option(value="") Gender
+                                option(value="male") Male
+                                option(value="female") Female
+                        .col-md-3
+                            input#mobile.form-control(type="text" placeholder="Mobile Number..." name="patient_mobile" value="")
+                            ul#lists(style="display:none;")
+                    .col-md-12.clearfix
+                        br
+                    .left-section
+                        .row
+                            .col-md-4
+                                .sidebar
+                                    .col-md-12
+                                        .trit-section
+                                            h4.cover
+                                                | Treatment
+                                                span.float-right.addMoreTreat
+                                                    i.fa.fa-plus
+                                            .row
+                                                .col-md-4
+                                                    .form-group
+                                                        select.form-control.select2(name="treatment_name[]")
+                                                            option(value="") Select
+                                                .col-md-8
+                                                    .form-group
+                                                        input.form-control.serial_num(type="text" name="patient_desease_code[]" placeholder="Treatment notes")
+                                    .clearfix.col-md-12
+                                    .col-md-12
+                                        .advice-section
+                                            h4.cover
+                                                | Advice
+                                                span.float-right.addMoreAdvice
+                                                    i.fa.fa-plus
+                                            .row
+                                                .col-md-4
+                                                    .form-group
+                                                        select.form-control.select2(name="advice_name[]")
+                                                            option(value="") Select
+                                                .col-md-8
+                                                    .form-group
+                                                        input.form-control.serial_num(type="text" name="patient_desease_code[]" placeholder="Advice notes")
+                            .col-md-8
+                                h4.cover
+                                    | Medicine
+                                    span.float-right.addMoreMedicine
+                                        i.fa.fa-plus
+                                .row
+                                    .col-md-2
+                                        .form-group
+                                            select#type.form-control.select2(name="medicine_continue[]" required="")
+                                                option(value="1") Tab
+                                                option(value="2") Cap
+                                                option(value="3") Syp
+                                    .col-md-4
+                                        .form-group
+                                            select.form-control.select2(name="medicine_name[]" required="")
+                                                option(value="") Medicine
+                                    .col-md-3
+                                        .form-group
+                                            select.form-control.select2(name="medicine_note[]")
+                                                option(value="") Note
+                                    .col-md-3
+                                        .form-group
+                                            select.form-control.select2(name="medicine_take_slot[]" required="")
+                                                option(value="") Slot
+                                    .col-md-12
+                                        input.form-control.take_note(type="text" name="medicine_take_note[]" placeholder="Note...")
+                                .col-md-1
+                                    .form-group.close
+                                        i.fa.fa-close
+                                .col-md-12.clearfix
+                                    .row
+                                        hr
+                                .single-item
+                                .clearfix.col-md-12
+                                .col-md-12
+                                    .note
+                                        textarea#patient_note.form-control(name="note" cols="5" rows="2" placeholder="Note...")
+                                        ul.patient_note_lists(style="display:none;")
+                                .clearfix.col-md-12
+                                    br
+                                .col-md-12
+                                    .row
+                                        button.btn.btn-success(type="submit") Create
+                                .clearfix.col-md-12
+                                    br
+        .repeat-section(style="display:none")
+            .treatment-repeat
+                .clearfix
+                    .row
+                        .col-md-6
+                            .form-group
+                                select.form-control.select2(name="treatment_name[]")
+                                    option(value="") Select
+                        .col-md-6
+                            .form-group
+                                input.form-control.serial_num(type="text" name="patient_desease_code[]" placeholder="Serial Number")
+                                ul.serial_num_lists(style="display:none;")
+                        .col-md-2
+                            .form-group.close
+                                i.fa.fa-close.close-item
+            .advice-repeat
+                .clearfix
+                    .col-md-6
+                        .form-group
+                            select.form-control.select2(name="advice_name[]")
+                                option(value="") Select
+                    .col-md-2
+                        .form-group.close
+                            i.fa.fa-close.close-item
+            .medicine-repeat
+                .clearfix
+                    .row
+                        .col-md-2
+                            .form-group
+                                select#type.form-control.select2(name="medicine_continue[]" required="")
+                                    option(value="1") Tab
+                                    option(value="2") Cap
+                                    option(value="3") Syp
+                        .col-md-4
+                            .form-group
+                                select.form-control.select2(name="medicine_name[]" required="")
+                                    option(value="") Medicine
+                        .col-md-3
+                            .form-group
+                                select.form-control.select2(name="medicine_note[]")
+                                    option(value="") Note
+                        .col-md-3
+                            .form-group
+                                select.form-control.select2(name="medicine_take_slot[]" required="")
+                                    option(value="") Slot
+                        .col-md-12
+                            input.form-control.take_note(type="text" name="medicine_take_note[]" placeholder="Note...")
+                            ul.take_note_lists(style="display:none;")
+                        .col-md-1
+                            .form-group.close
+                                i.fa.fa-close.close-item
+                        .col-md-12.clearfix
+                            .row
+                                hr
+    script.
+        window.onload = function () {
+                $('#datepicker').datepicker({
+                    "dateFormat": "yy-mm-dd"
+                });
+
+                $('#datePicker').val(new Date().toDateInputValue());
+
+            $(document).on('click keyup', '.p_name', function () {
+                var txt = $(this).val();
+                do_search($(this), 'patient', txt, "name");
+            });
+
+            $(document).on('click keyup', '.take_note', function () {
+                var txt = $(this).val();
+                do_search($(this), 'patient_medicine', txt, "take_note");
+            });
+            $(document).on('click keyup', '#patient_note', function () {
+                var txt = $(this).val();
+                do_search($(this), 'patient', txt, "note");
+            });
+            $(document).on('focusout', '.p_name, .take_note, .serial_num', function () {
+                $(this).parent().find('ul').fadeOut();
+            });
+            $(document).on('click keyup', '.serial_num', function () {
+                var txt = $(this).val();
+                do_search($(this), 'patient_tretment', txt, "serial_num");
+            });
+            $(document).on('click', '.take_note_lists li a, #nameLists li a, .patient_note_lists li a, .serial_num_lists li a', function () {
+                var txt = $(this).text();
+                $(this).parent().parent().parent().find('.take_note, .p_name, #patient_note, .serial_num').val(txt);
+                $(this).parent().parent().fadeOut();
+            });
+        };

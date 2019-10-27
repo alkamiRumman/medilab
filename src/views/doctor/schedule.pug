@@ -1,0 +1,107 @@
+extends ../layout/layout
+block content
+    .card
+        .card-header
+            | Time Schedule
+        .card-body
+            h5.card-title Select Days
+            form.form-material(action='/doctor/schedule' method='post')
+                label.checkbox-inline
+                    input(type="checkbox" name="days" value="Saturday")
+                    | Saturday &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="days" value="Sunday")
+                    | Sunday &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="days" value="Monday")
+                    | Monday &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="days" value="Tuesday")
+                    | Tuesday &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="days" value="Wednesday")
+                    | Wednesday &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="days" value="Thursday")
+                    | Thursday &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="days" value="Friday")
+                    | Friday
+                hr
+                h5 Select Times
+                b Morning: &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="10:00-10:30AM")
+                    | 10:00-10:30AM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="10:30-11:00AM")
+                    | 10:30-11:00AM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="11:00-11:30AM")
+                    | 11:00-11:30AM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="11:30-12:00PM")
+                    | 11:30-12:00PM &nbsp;
+                br
+                b Noon: &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="12:00-12:30PM")
+                    | 12:00-12:30PM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="12:30-01:00PM")
+                    | 12:30-01:00PM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="01:00-01:30PM")
+                    | 01:00-01:30PM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="01:30-02:00PM")
+                    | 01:30-02:00PM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="02:00-02:30PM")
+                    | 02:00-02:30PM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="02:30-03:00PM")
+                    | 02:30-03:00PM &nbsp;
+                br
+                b Afternoon: &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="03:00-03:30PM")
+                    | 03:00-03:30PM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="03:30-04:00PM")
+                    | 03:30-04:00PM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="04:00-04:30PM")
+                    | 04:00-04:30PM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="04:30-05:00PM")
+                    | 04:30-05:00PM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="05:00-05:30PM")
+                    | 05:00-05:30PM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="05:50-06:00PM")
+                    | 05:50-06:00PM &nbsp;
+                br
+                b Evening: &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="06:00-06:30PM")
+                    | 06:00-06:30PM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="06:30-07:00PM")
+                    | 06:30-07:00PM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="07:00-07:30PM")
+                    | 07:00-07:30PM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="07:30-08:00PM")
+                    | 07:30-08:00PM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="08:00-08:30PM")
+                    | 08:00-08:30PM &nbsp;
+                label.checkbox-inline
+                    input(type="checkbox" name="times" value="08:30-09:00PM")
+                    | 08:30-09:00PM
+                .card-footer
+                button.btn.btn-block.text-uppercase.waves-effect.waves-light(type='submit' )
+                    b Save

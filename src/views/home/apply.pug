@@ -19,7 +19,7 @@ html(lang='en')
         .wrapper
             .container
                 h1.text-white.font-weight-bold Medilab+ Clinic
-                form#applyForm.form-horizontal.form-material.bg-light.shadow.p-md-5.p-4.mx-3.mx-md-auto(action='/apply', novalidate='', method='post', accept-charset='utf-8' )
+                form#applyForm.form-horizontal.form-material.bg-light.shadow.p-md-5.p-4.mx-3.mx-md-auto(action='/apply', method='post')
                     h3.box-title.m-b-15 Sign Up
                     .form-group
                         .col-6
@@ -31,8 +31,8 @@ html(lang='en')
                         .col-6
                             input.form-control(type='password' placeholder='Password' name='password' required minlength='4')
                     .form-group
-                        .col-6.text-center
-                            select#designation.form-control(name='designation')
+                        .col-md-6
+                            select.form-control(name='designation')
                                 option(value='doctor') Doctor
                                 option(value='receptionist') Receptionist
                                 option(value='laboratorist') Laboratorist

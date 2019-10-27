@@ -4,7 +4,6 @@ export class Data {
 	public userID: string;
 	public isDesination: string;
 	public loginTime: Date;
-	pu
 }
 
 export class $SESSION {

@@ -1,3 +1,5 @@
+-
+
 mixin navbar
 	.wrapper
 		// Sidebar
@@ -6,61 +8,70 @@ mixin navbar
 				h3 Medilab Clinic
 				strong MC
 			ul.list-unstyled.components
-				li.active
-					a.dropdown-toggle(href="#homeSubmenu" data-toggle="collapse" aria-expanded="false")
+				li
+					a(href="/doctor")
 						i.fas.fa-home
 						| Home
-					ul#homeSubmenu.collapse.list-unstyled
-						li
-							a(href="#") Home 1
-						li
-							a(href="#") Home 2
-						li
-							a(href="#") Home 3
 				li
 					a(href="#")
-						i.fas.fa-briefcase
-						| About
-					a.dropdown-toggle(href="#pageSubmenu" data-toggle="collapse" aria-expanded="false")
+						i.fas.fa-user
+						| Profile
+					a(href="/doctor/schedule")
 						i.fas.fa-copy
-						| Pages
+						| Schedule
+					a.dropdown-toggle(href="#pageSubmenu" data-toggle="collapse" aria-expanded="false")
+						i.fas.fa-cogs
+						| Accessories
 					ul#pageSubmenu.collapse.list-unstyled
 						li
-							a(href="#") Page 1
+							a(href="/doctor/advice") Advice
 						li
-							a(href="#") Page 2
+							a(href="/doctor/treatment") Treatment
 						li
-							a(href="#") Page 3
+							a.dropdown-toggle(href="#medicineSubmenu" data-toggle="collapse" aria-expanded="false")
+								i.fas.fa-medkit
+								|  Medicine
+							ul#medicineSubmenu.collapse.list-unstyled
+								li
+									a(href="/doctor/medicine") Manage
+								li
+									a(href="/doctor/medicineNote") Medicine Note
 				li
 					a(href="#")
 						i.fas.fa-paper-plane
 						| Contact
 			ul.list-unstyled.CTAs
 				li
-					a.download(href="") Download source
+					a.download(href="/doctor/prescription") Create Prescription
 				li
-					a.article(href="") Back to article
+					a.article(href="#") Patient List
+			ul.list-unstyled
+				li
+					a.logout(href="/logout")
+						i.fas.fa-power-off
+						| log Out
 		// Page Content
 		#content
 			nav.navbar.navbar-expand-lg.navbar-light.bg-light
 				.container-fluid
-					button#sidebarCollapse.btn.btn-info(type="button")
-						i.fas.fa-align-left
-						span Toggle Sidebar
-					button.btn.btn-dark.d-inline-block.d-lg-none.ml-auto(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
-						i.fas.fa-align-justify
-				button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
+					button#sidebarCollapse.btn(type="button")
+						span.navbar-toggler-icon
+				button.navbar-toggler.text-right(type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav"
+					aria-expanded="false" aria-label="Toggle navigation")
 					span.navbar-toggler-icon
 				#navbar-list-4.collapse.navbar-collapse
+					a(href="#") !{$SESSION.user.name}
 					ul.navbar-nav
 						li.nav-item.dropdown
-							a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+							a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false")
 								img.profile-pic(src='/images/profile.png', alt='user')
 							.dropdown-menu.dropdown-menu-right.scale-up
-								a.dropdown-item(href="#") Dashboard
+								a.dropdown-item(href="#") !{$SESSION.user.name}
 								a.dropdown-item(href="#") Edit Profile
 								a.dropdown-item(href="/logout") Log Out
 			block content
+				pre !{$SESSION}
 	script.
 		window.onload = function () {
 			$('#sidebarCollapse').on('click', function () {

@@ -7,6 +7,9 @@ import {Data} from "../config/SessionData";
 import {ifLoggedIn, ifNotLoggedIn} from "../middlewares/SessionCheck";
 import session from "express-session";
 
+const bcrypt = require("bcrypt");
+const Cryptr = require('crypto');
+
 @Controller("/")
 export class Home extends BaseController {
     constructor(private mongo: Mongo) {
@@ -23,52 +26,66 @@ export class Home extends BaseController {
 
     @Get("/login")
     @Post("/login")
-    @UseBefore(ifLoggedIn)
+    @Use(ifLoggedIn)
     async login(@Res() res: Res, @Req() req: Req) {
         if (req.method == 'POST') {
             let {email, password} = req.body;
             let User: User = await this.mongo.UserService.findOne({
-                email: email,
-                password: password
+                email: email
             });
             if (User) {
-                if (User.flag === true) {
-                    let data = new Data();
-                    data.userID = User._id.toHexString();;
-                    data.isDesination = User.designation;
-                    data.loginTime = new Date();
-                    req.session.user = data;
-                    let user = await this.mongo.UserService.findById(User._id);
-                    await user.save();
-                    let notification: Notification = {
-                        message: "Login as " + User.name + " @" + Date(),
-                        type: NotificationType.SUCCESS,
-                        title: "Login Success!"
-                    };
-                    this.config.notification.push(notification);
-                    return res.redirect("/receptionist");
+                if (User.status === true) {
+                    if (bcrypt.compareSync(password, User.password)) {
+                        let data = new Data();
+                        data.userID = User._id.toHexString();
+
+                        data.isDesination = User.designation;
+                        data.loginTime = new Date();
+                        req.session.user = data;
+                        let user = await this.mongo.UserService.findById(User._id);
+                        await user.save();
+                        let notification: Notification = {
+                            message: "Login as " + User.name + " @" + Date(),
+                            type: NotificationType.SUCCESS,
+                            title: "Login Success!"
+                        };
+                        this.config.notification.push(notification);
+                        if (req.session.oldRequest) {
+                            let url = req.session.oldRequest;
+                            delete req.session.oldRequest;
+                            return res.redirect(url);
+                        }
+                        return res.redirect("/login");
+                    } else {
+                        let notification: Notification = {
+                            message: "Username and password does not match!",
+                            type: NotificationType.WARNING,
+                            title: "Login Failed!"
+                        };
+                        this.config.notification.push(notification);
+                        return res.redirect("/login");
+                    }
                 } else {
                     let notification: Notification = {
-                        message: "Username does not registered!",
+                        message: "User is not registered by Admin!",
                         type: NotificationType.WARNING,
-                        title: "Login Failed!"
+                        title: "User has no permission to login!"
                     };
                     this.config.notification.push(notification);
                     return res.redirect("/login");
                 }
             } else {
                 let notification: Notification = {
-                    message: "Email or Password doesn't matched!",
-                    type: NotificationType.ERROR,
+                    message: "Username and password does not match!",
+                    type: NotificationType.WARNING,
                     title: "Login Failed!"
                 };
                 this.config.notification.push(notification);
                 return res.redirect("/login");
             }
-
         } else {
             this.config.render = "login";
-            await this.render(req, res);
+            return this.render(req, res);
         }
     }
 
@@ -81,9 +98,9 @@ export class Home extends BaseController {
             let user = new User();
             user.name = name;
             user.email = email;
-            user.password = password;
+            user.password = bcrypt.hashSync(password, 12);
             user.designation = designation;
-            user.flag = false;
+            user.status = false;
             let data = new this.mongo.UserService(user);
             await data.save();
             let notification: Notification = {
@@ -92,6 +109,7 @@ export class Home extends BaseController {
                 title: "Sign-up Success"
             };
             this.config.notification.push(notification);
+            console.log(req.body);
             return res.redirect("/login");
         } else {
             this.config.render = "apply";

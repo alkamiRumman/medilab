@@ -1,4 +1,3 @@
-h1 hello Doctor
-a(href='/logout')
-    i.fa.fa-power-off
-    |  Logout
+extends ../layout/layout
+block content
+    h1 hello Dr. !{$SESSION.user.name}

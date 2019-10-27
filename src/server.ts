@@ -37,7 +37,8 @@ dt.config();
 	},
 	mount: {
 		"/": `${rootDir}/controllers/*`,
-		'/doctor': `${rootDir}/controllers/Doctor/**`,
+		"/home": `${rootDir}/controllers/home/*`
+
 	},
 	httpPort: process.env.PORT,
 	viewsDir: `${rootDir}/views`,
