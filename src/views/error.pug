@@ -1,0 +1,36 @@
+doctype html
+html
+	head
+		link(rel="shortcut icon", type="image/x-icon", href="favicon.ico")
+		title= title
+		style.
+			body {
+				padding: 50px;
+				font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+			}
+
+			a {
+				color: #00B7FF;
+			}
+
+			h1 {
+				color: tomato;
+			}
+
+			h2 {
+				color: darkred;
+			}
+
+			h3 {
+				color: darkorange;
+			}
+body
+	h1=status
+	h3 #{new Date()}
+	h2= message ? message : error.code
+	h4= error.msg ? error.msg + " @line:" + error.line : ""
+	pre #{error ? error.stack : ""}
+	pre #{error.view ? JSON.stringify(error.view) : ""}
+	p #{error.filename ? "fileName: " + error.filename : ""}
+	p #{error.src ? "src: " + error.src : ""}
+

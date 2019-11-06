@@ -1,0 +1,21 @@
+extends ../layout/layout
+block content
+    table.table
+        thead
+            tr
+                th(scope="col") No
+                th(scope="col") Name
+                th(scope="col") Email
+                th(scope="col") Designation
+                th(scope="col") Action
+        tbody
+        each usr, i in usrs
+            tr
+                td !{i+1}
+                td !{usr.name}
+                td !{usr.email}
+                td !{usr.designation}
+                td
+                    a(href="/admin/list")
+                        | Accept
+

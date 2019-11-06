@@ -1,6 +1,7 @@
 import {Email, Property, PropertyType} from "@tsed/common";
 import {Indexed, Model, ObjectID} from "@tsed/mongoose";
 import {Types} from "mongoose";
+import {Advice} from "../schema/Advice";
 
 
 @Model({
@@ -34,6 +35,4 @@ export class User {
 
 	@Property()
 	isDesignation: string;
-
-
 }

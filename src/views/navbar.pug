@@ -1,5 +1,3 @@
--
-
 mixin navbar
 	.wrapper
 		// Sidebar
@@ -16,35 +14,44 @@ mixin navbar
 					a(href="#")
 						i.fas.fa-user
 						| Profile
-					a(href="/doctor/schedule")
-						i.fas.fa-copy
-						| Schedule
-					a.dropdown-toggle(href="#pageSubmenu" data-toggle="collapse" aria-expanded="false")
-						i.fas.fa-cogs
-						| Accessories
-					ul#pageSubmenu.collapse.list-unstyled
-						li
-							a(href="/doctor/advice") Advice
-						li
-							a(href="/doctor/treatment") Treatment
-						li
-							a.dropdown-toggle(href="#medicineSubmenu" data-toggle="collapse" aria-expanded="false")
-								i.fas.fa-medkit
-								|  Medicine
-							ul#medicineSubmenu.collapse.list-unstyled
-								li
-									a(href="/doctor/medicine") Manage
-								li
-									a(href="/doctor/medicineNote") Medicine Note
+				if($SESSION.user.designation === 'admin')
+					li
+						a(href="/admin/list")
+							i.fas.fa-list
+							| User List
+				if($SESSION.user.designation === 'doctor')
+					li
+						a(href="/doctor/schedule")
+							i.fas.fa-copy
+							| Schedule
+					li
+						a.dropdown-toggle(href="#pageSubmenu" data-toggle="collapse" aria-expanded="false")
+							i.fas.fa-cogs
+							| Accessories
+						ul#pageSubmenu.collapse.list-unstyled
+							li
+								a(href="/doctor/advice") Advice
+							li
+								a(href="/doctor/treatment") Treatment
+							li
+								a.dropdown-toggle(href="#medicineSubmenu" data-toggle="collapse" aria-expanded="false")
+									i.fas.fa-medkit
+									|  Medicine
+								ul#medicineSubmenu.collapse.list-unstyled
+									li
+										a(href="/doctor/medicine") Manage
+									li
+										a(href="/doctor/medicineNote") Medicine Note
 				li
 					a(href="#")
 						i.fas.fa-paper-plane
 						| Contact
-			ul.list-unstyled.CTAs
-				li
-					a.download(href="/doctor/prescription") Create Prescription
-				li
-					a.article(href="#") Patient List
+			if($SESSION.user.designation === 'doctor')
+				ul.list-unstyled.CTAs
+					li
+						a.download(href="/doctor/prescription") Create Prescription
+					li
+						a.article(href="#") Patient List
 			ul.list-unstyled
 				li
 					a.logout(href="/logout")

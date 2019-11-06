@@ -12,15 +12,13 @@ block content
                         | Create New Medicine Note
                         .card-body
                             form(action="create-options.php" method="POST")
-                                input(type="hidden" name="_table" value="advice")
-                                input(type="hidden" name="_page" value="advices.php")
                                 .row
                                     .col-md-6
                                         .form-group
                                             input.form-control(type="text" name="name" placeholder="Name..." value="" required="")
                                     .col-md-6
                                         .form-group
-                                            input.form-control(type="text" name="value" placeholder="Value..." value="")
+                                            input.form-control(type="text" name="note" placeholder="Note..." value="")
                                 button.btn.btn-success(type="submit") Create
                 .panel.panel-bd
                     .panel-heading
@@ -34,7 +32,7 @@ block content
                                     tr
                                         th SL
                                         th Name
-                                        th Value
+                                        th Note
                                         th Action
                                 tbody
                                     tr

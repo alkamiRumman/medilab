@@ -6,102 +6,278 @@ block content
         .card-body
             h5.card-title Select Days
             form.form-material(action='/doctor/schedule' method='post')
+            each sc in schedule
                 label.checkbox-inline
-                    input(type="checkbox" name="days" value="Saturday")
+                    input(type="checkbox" name="days" checked=sc.days.indexOf("Saturday")>-1 value="Saturday")
                     | Saturday &nbsp;
                 label.checkbox-inline
-                    input(type="checkbox" name="days" value="Sunday")
+                    input(type="checkbox" name="days" checked=sc.days.indexOf("Sunday")>-1 value="Sunday")
                     | Sunday &nbsp;
                 label.checkbox-inline
-                    input(type="checkbox" name="days" value="Monday")
+                    input(type="checkbox" name="days" checked=sc.days.indexOf("Monday")>-1 value="Monday")
                     | Monday &nbsp;
                 label.checkbox-inline
-                    input(type="checkbox" name="days" value="Tuesday")
+                    input(type="checkbox" name="days" checked=sc.days.indexOf("Tuesday")>-1 value="Tuesday")
                     | Tuesday &nbsp;
                 label.checkbox-inline
-                    input(type="checkbox" name="days" value="Wednesday")
+                    input(type="checkbox" name="days" checked=sc.days.indexOf("Wednesday")>-1 value="Wednesday")
                     | Wednesday &nbsp;
                 label.checkbox-inline
-                    input(type="checkbox" name="days" value="Thursday")
+                    input(type="checkbox" name="days" checked=sc.days.indexOf("Thursday")>-1 value="Thursday")
                     | Thursday &nbsp;
                 label.checkbox-inline
-                    input(type="checkbox" name="days" value="Friday")
+                    input(type="checkbox" name="days" checked=sc.days.indexOf("Friday")>-1 value="Friday")
                     | Friday
                 hr
                 h5 Select Times
-                b Morning: &nbsp;
+                h5 Morning:
                 label.checkbox-inline
-                    input(type="checkbox" name="times" value="10:00-10:30AM")
-                    | 10:00-10:30AM &nbsp;
+                    input#checkMorningAll(type="checkbox")
+                    | Select All / None
+                    br
+                    br
+                    label.checkbox-inline
+                        input.morningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("10:00-10:15AM")>-1 value="10:00-10:15AM")
+                        | 10:00-10:15AM &nbsp;
+                    label.checkbox-inline
+                        input.morningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("10:15-10:30AM")>-1 value="10:15-10:30AM")
+                        | 10:15-10:30AM &nbsp;
+                    label.checkbox-inline
+                        input.morningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("10:30-11:45AM")>-1 value="10:30-11:45AM")
+                        | 10:30-10:45AM &nbsp;
+                    label.checkbox-inline
+                        input.morningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("10:45-11:00AM")>-1 value="10:45-11:00AM")
+                        | 10:45-11:00AM &nbsp;
+                    label.checkbox-inline
+                        input.morningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("11:00-11:15AM")>-1 value="11:00-11:15AM")
+                        | 11:00-11:15AM &nbsp;
+                    label.checkbox-inline
+                        input.morningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("11:15-11:30AM")>-1 value="11:15-11:30AM")
+                        | 11:15-11:30AM &nbsp;
+                    label.checkbox-inline
+                        input.morningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("11:30-11:45PM")>-1 value="11:30-11:45PM")
+                        | 11:30-11:45PM &nbsp;
+                    label.checkbox-inline
+                        input.morningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("11:45-12:00PM")>-1 value="11:45-12:00PM")
+                        | 11:45-12:00PM &nbsp;
+                hr
+                h5 Noon:
                 label.checkbox-inline
-                    input(type="checkbox" name="times" value="10:30-11:00AM")
-                    | 10:30-11:00AM &nbsp;
+                    input#checkNoonAll(type="checkbox")
+                    | Select All / None
+                    br
+                    br
+                    label.checkbox-inline
+                        input.noonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("12:00-12:15PM")>-1 value="12:00-12:15PM")
+                        | 12:00-12:15PM &nbsp;
+                    label.checkbox-inline
+                        input.noonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("12:15-12:30PM")>-1 value="12:15-12:30PM")
+                        | 12:15-12:30PM &nbsp;
+                    label.checkbox-inline
+                        input.noonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("12:30-12:45PM")>-1 value="12:30-12:45PM")
+                        | 12:30-12:45PM &nbsp;
+                    label.checkbox-inline
+                        input.noonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("12:45-01:00PM")>-1 value="12:45-01:00PM")
+                        | 12:45-01:00PM &nbsp;
+                    label.checkbox-inline
+                        input.noonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("01:15-01:30PM")>-1 value="01:00-01:15PM")
+                        | 01:00-01:15PM &nbsp;
+                    label.checkbox-inline
+                        input.noonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("01:15-01:30PM")>-1 value="01:15-01:30PM")
+                        | 01:15-01:30PM &nbsp;
+                    label.checkbox-inline
+                        input.noonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("01:30-01:45PM")>-1 value="01:30-01:45PM")
+                        | 01:30-01:45PM &nbsp;
+                    label.checkbox-inline
+                        input.noonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("01:45-02:00PM")>-1 value="01:45-02:00PM")
+                        | 01:45-02:00PM &nbsp;
+                    label.checkbox-inline
+                        input.noonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("02:00-02:15PM")>-1 value="02:00-02:15PM")
+                        | 02:00-02:15PM &nbsp;
+                    label.checkbox-inline
+                        input.noonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("02:15-02:30PM")>-1 value="02:15-02:30PM")
+                        | 02:15-02:30PM &nbsp;
+                    label.checkbox-inline
+                        input.noonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("02:30-02:45PM")>-1 value="02:30-02:45PM")
+                        | 02:30-02:45PM &nbsp;
+                    label.checkbox-inline
+                        input.noonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("02:45-03:00PM")>-1 value="02:45-03:00PM")
+                        | 02:45-03:00PM &nbsp;
+                hr
+                h5 Afternoon:
                 label.checkbox-inline
-                    input(type="checkbox" name="times" value="11:00-11:30AM")
-                    | 11:00-11:30AM &nbsp;
+                    input#checkAfternoonAll(type="checkbox")
+                    | Select All / None
+                    br
+                    br
+                    label.checkbox-inline
+                        input.afternoonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("03:00-03:15PM")>-1 value="03:00-03:15PM")
+                        | 03:00-03:15PM &nbsp;
+                    label.checkbox-inline
+                        input.afternoonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("03:15-03:30PM")>-1 value="03:15-03:30PM")
+                        | 03:15-03:30PM &nbsp;
+                    label.checkbox-inline
+                        input.afternoonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("03:30-04:00PM")>-1 value="03:30-04:00PM")
+                        | 03:30-04:00PM &nbsp;
+                    label.checkbox-inline
+                        input.afternoonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("03:30-03:45PM")>-1 value="03:30-03:45PM")
+                        | 03:30-03:45PM &nbsp;
+                    label.checkbox-inline
+                        input.afternoonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("03:45-04:00PM")>-1 value="03:45-04:00PM")
+                        | 03:45-04:00PM &nbsp;
+                    label.checkbox-inline
+                        input.afternoonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("04:00-04:15PM")>-1 value="04:00-04:15PM")
+                        | 04:00-04:15PM &nbsp;
+                    label.checkbox-inline
+                        input.afternoonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("04:15-04:30PM")>-1 value="04:15-04:30PM")
+                        | 04:15-04:30PM &nbsp;
+                    label.checkbox-inline
+                        input.afternoonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("04:30-04:45PM")>-1 value="04:30-04:45PM")
+                        | 04:30-04:45PM &nbsp;
+                    label.checkbox-inline
+                        input.afternoonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("04:45-05:00PM")>-1 value="04:45-05:00PM")
+                        | 04:45-05:00PM &nbsp;
+                    label.checkbox-inline
+                        input.afternoonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("05:00-05:15PM")>-1 value="05:00-05:15PM")
+                        | 05:00-05:15PM &nbsp;
+                    label.checkbox-inline
+                        input.afternoonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("05:15-05:30PM")>-1 value="05:15-05:30PM")
+                        | 05:15-05:30PM &nbsp;
+                    label.checkbox-inline
+                        input.afternoonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("05:30-05:45PM")>-1 value="05:30-05:45PM")
+                        | 05:30-05:45PM &nbsp;
+                    label.checkbox-inline
+                        input.afternoonCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("05:45-06:00PM")>-1 value="05:45-06:00PM")
+                        | 05:45-06:00PM &nbsp;
+                hr
+                h5 Evening:
                 label.checkbox-inline
-                    input(type="checkbox" name="times" value="11:30-12:00PM")
-                    | 11:30-12:00PM &nbsp;
-                br
-                b Noon: &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="12:00-12:30PM")
-                    | 12:00-12:30PM &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="12:30-01:00PM")
-                    | 12:30-01:00PM &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="01:00-01:30PM")
-                    | 01:00-01:30PM &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="01:30-02:00PM")
-                    | 01:30-02:00PM &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="02:00-02:30PM")
-                    | 02:00-02:30PM &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="02:30-03:00PM")
-                    | 02:30-03:00PM &nbsp;
-                br
-                b Afternoon: &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="03:00-03:30PM")
-                    | 03:00-03:30PM &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="03:30-04:00PM")
-                    | 03:30-04:00PM &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="04:00-04:30PM")
-                    | 04:00-04:30PM &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="04:30-05:00PM")
-                    | 04:30-05:00PM &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="05:00-05:30PM")
-                    | 05:00-05:30PM &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="05:50-06:00PM")
-                    | 05:50-06:00PM &nbsp;
-                br
-                b Evening: &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="06:00-06:30PM")
-                    | 06:00-06:30PM &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="06:30-07:00PM")
-                    | 06:30-07:00PM &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="07:00-07:30PM")
-                    | 07:00-07:30PM &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="07:30-08:00PM")
-                    | 07:30-08:00PM &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="08:00-08:30PM")
-                    | 08:00-08:30PM &nbsp;
-                label.checkbox-inline
-                    input(type="checkbox" name="times" value="08:30-09:00PM")
-                    | 08:30-09:00PM
+                    input#checkEveningAll(type="checkbox")
+                    | Select All / None
+                    br
+                    br
+                    label.checkbox-inline
+                        input.eveningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("06:00-06:15PM")>-1 value="06:00-06:15PM")
+                        | 06:00-06:15PM &nbsp;
+                    label.checkbox-inline
+                        input.eveningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("06:15-06:30PM")>-1 value="06:15-06:30PM")
+                        | 06:15-06:30PM &nbsp;
+                    label.checkbox-inline
+                        input.eveningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("06:30-06:45PM")>-1 value="06:30-06:45PM")
+                        | 06:30-06:45PM &nbsp;
+                    label.checkbox-inline
+                        input.eveningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("06:45-07:00PM")>-1 value="06:45-07:00PM")
+                        | 06:45-07:00PM &nbsp;
+                    label.checkbox-inline
+                        input.eveningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("07:00-07:15PM")>-1 value="07:00-07:15PM")
+                        | 07:00-07:15PM &nbsp;
+                    label.checkbox-inline
+                        input.eveningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("07:15-07:30PM")>-1 value="07:15-07:30PM")
+                        | 07:15-07:30PM &nbsp;
+                    label.checkbox-inline
+                        input.eveningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("07:30-07:45PM")>-1 value="07:30-07:45PM")
+                        | 07:30-07:45PM &nbsp;
+                    label.checkbox-inline
+                        input.eveningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("07:45-08:00PM")>-1 value="07:45-08:00PM")
+                        | 07:45-08:00PM &nbsp;
+                    label.checkbox-inline
+                        input.eveningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("08:00-08:15PM")>-1 value="08:00-08:15PM")
+                        | 08:00-08:15PM &nbsp;
+                    label.checkbox-inline
+                        input.eveningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("08:15-08:30PM")>-1 value="08:15-08:30PM")
+                        | 08:15-08:30PM &nbsp;
+                    label.checkbox-inline
+                        input.eveningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("08:30-08:45PM")>-1 value="08:30-08:45PM")
+                        | 08:30-08:45PM
+                    label.checkbox-inline
+                        input.eveningCheckBox(type="checkbox" name="times" checked=sc.times.indexOf("08:45-09:00PM")>-1 value="08:45-09:00PM")
+                        | 08:45-09:00PM
+                .p#demo
                 .card-footer
                 button.btn.btn-block.text-uppercase.waves-effect.waves-light(type='submit' )
                     b Save
+    script.
+
+        $('#checkMorningAll').on('change', function (evt) {
+            $('.morningCheckBox').prop('checked', $(this).is(':checked'));
+        });checkALl();
+
+        function checkALl(){
+            let count = 0;
+            $('.morningCheckBox').each(function (i) {
+                if ($(this).is(':checked')) {
+                    count++;
+                }
+            });
+
+            if(count==8){
+                $('#checkMorningAll').prop('checked', true);
+            }
+
+            //
+            count = 0;
+            $('.noonCheckBox').each(function (i) {
+                if ($(this).is(':checked')) {
+                    count++;
+                }
+            })
+            if (count == 12) {
+                $('#checkNoonAll').prop('checked', true);
+            }
+
+            //
+            count = 0;
+            $('.afternoonCheckBox').each(function (i) {
+                if ($(this).is(':checked')) {
+                    count++;
+                }
+            })
+            if (count == 13) {
+                $('#checkAfternoonAll').prop('checked', true);
+            }
+        }
+
+        $('.morningCheckBox').on('change', function (evt) {
+            $('.morningCheckBox').each(function (i) {
+                if(!$(this).is(':checked')){
+                    $('#checkMorningAll').prop('checked', false);
+                }
+            })
+        });checkALl();
+
+        $('#checkNoonAll').on('change', function (evt) {
+            $('.noonCheckBox').prop('checked', $(this).is(':checked'));
+        });
+
+        $('.noonCheckBox').on('change', function (evt) {
+            $('.noonCheckBox').each(function (i) {
+                if (!$(this).is(':checked')) {
+                    $('#checkNoonAll').prop('checked', false);
+                }
+            })
+        });checkALl();
+
+
+        $('#checkAfternoonAll').on('change', function (evt) {
+            $('.afternoonCheckBox').prop('checked', $(this).is(':checked'));
+        });
+
+        $('.afternoonCheckBox').on('change', function (evt) {
+            $('.afternoonCheckBox').each(function (i) {
+                if (!$(this).is(':checked')) {
+                    $('#checkAfternoonAll').prop('checked', false);
+                }
+            })
+        });checkALl();
+
+        $('#checkEveningAll').on('change', function (evt) {
+            $('.eveningCheckBox').prop('checked', $(this).is(':checked'));
+        });
+
+        $('.eveningCheckBox').on('change', function (evt) {
+            $('.eveningCheckBox').each(function (i) {
+                if (!$(this).is(':checked')) {
+                    $('#checkEveningAll').prop('checked', false);
+                }
+            })
+        });checkALl();

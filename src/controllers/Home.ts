@@ -5,7 +5,7 @@ import {User} from "../models/User";
 import {Notification, NotificationType} from "../config/Notification";
 import {Data} from "../config/SessionData";
 import {ifLoggedIn, ifNotLoggedIn} from "../middlewares/SessionCheck";
-import session from "express-session";
+import {DoctorModel} from "../models/DoctorModel";
 
 const bcrypt = require("bcrypt");
 const Cryptr = require('crypto');
@@ -38,7 +38,6 @@ export class Home extends BaseController {
                     if (bcrypt.compareSync(password, User.password)) {
                         let data = new Data();
                         data.userID = User._id.toHexString();
-
                         data.isDesination = User.designation;
                         data.loginTime = new Date();
                         req.session.user = data;
@@ -69,7 +68,7 @@ export class Home extends BaseController {
                     let notification: Notification = {
                         message: "User is not registered by Admin!",
                         type: NotificationType.WARNING,
-                        title: "User has no permission to login!"
+                        title: "Not registered yet!"
                     };
                     this.config.notification.push(notification);
                     return res.redirect("/login");
@@ -95,7 +94,10 @@ export class Home extends BaseController {
     async apply(@Res() res: Res, @Req() req: Req) {
         if (req.method == 'POST') {
             let {name, email, password, designation} = req.body;
-            let user = new User();
+            let user = new this.mongo.UserService();
+            let doctor = new this.mongo.DoctorModelService();
+            doctor.userID = user._id;
+            await doctor.save();
             user.name = name;
             user.email = email;
             user.password = bcrypt.hashSync(password, 12);
@@ -109,7 +111,6 @@ export class Home extends BaseController {
                 title: "Sign-up Success"
             };
             this.config.notification.push(notification);
-            console.log(req.body);
             return res.redirect("/login");
         } else {
             this.config.render = "apply";

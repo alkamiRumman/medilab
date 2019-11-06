@@ -99,7 +99,7 @@ export class Server extends ServerLoader {
 					secure: false
 				},
 				store: store,
-				resave: false,
+				resave: true,
 				saveUninitialized: false,
 			}));
 	}

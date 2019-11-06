@@ -1,5 +1,5 @@
 -
-    var $SESSION=__SESSION
+    var $SESSION = __SESSION
 doctype html
 html(lang='en')
     include header
@@ -7,8 +7,8 @@ html(lang='en')
     body
         include ../navbar
         +navbar
-        .footer-line
-            | &copy; !{new Date().getFullYear()} Medilab+ Clinic by&nbsp;
-            a(target='__blank' href='#') rumman
-        include footer
-        +footer
+    .footer-line.text-center
+        | &copy; !{new Date().getFullYear()} Medilab+ Clinic by &nbsp;
+        a.btn-link(target='__blank' href='#') rumman
+    include footer
+    +footer

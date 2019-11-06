@@ -3,6 +3,7 @@ import {MongooseModel, MongooseService} from "@tsed/mongoose";
 import {User} from "../models/User";
 import {DoctorModel} from "../models/DoctorModel";
 
+
 @Service()
 export class Mongo {
 	@Inject(User)

@@ -11,16 +11,14 @@ block content
                     .card-header
                         | Create New Advice
                         .card-body
-                            form(action="create-options.php" method="POST")
-                                input(type="hidden" name="_table" value="advice")
-                                input(type="hidden" name="_page" value="advices.php")
+                            form(action='/doctor/advice' method='post')
                                 .row
                                     .col-md-6
                                         .form-group
                                             input.form-control(type="text" name="name" placeholder="Name..." value="" required="")
                                     .col-md-6
                                         .form-group
-                                            input.form-control(type="text" name="value" placeholder="Value..." value="")
+                                            input.form-control(type="text" name="note" placeholder="Note..." value="")
                                 button.btn.btn-success(type="submit") Create
                 .panel.panel-bd
                     .panel-heading
@@ -34,33 +32,16 @@ block content
                                     tr
                                         th SL
                                         th Name
-                                        th Value
+                                        th Note
                                         th Action
                                 tbody
+                                each ad, i in advices.advice
                                     tr
-                                        td 1
-                                        td Temporary Filling
-                                        td Temporary Filling
+                                        td !{i+1}
+                                        td !{ad.name}
+                                        td !{ad.note}
                                         td
-                                            a(onclick="return confirm('Are you sure ?');" href="")
-                                                button.btn.btn-success EDIT
-                                            a(onclick="return confirm('Are you sure ?');" href="")
-                                                button.btn.btn-danger DELETE
-                                    tr
-                                        td 2
-                                        td Silver Filling
-                                        td Silver Filling
-                                        td
-                                            a(onclick="return confirm('Are you sure ?');" href="")
-                                                button.btn.btn-success EDIT
-                                            a(onclick="return confirm('Are you sure ?');" href="")
-                                                button.btn.btn-danger DELETE
-                                    tr
-                                        td 3
-                                        td Light Filling
-                                        td Light Filling
-                                        td
-                                            a(onclick="return confirm('Are you sure ?');" href="")
+                                            a(onclick="return confirm('Are you sure ?');" href="/doctor/adviceEdit/"+ ad._id)
                                                 button.btn.btn-success EDIT
                                             a(onclick="return confirm('Are you sure ?');" href="")
                                                 button.btn.btn-danger DELETE

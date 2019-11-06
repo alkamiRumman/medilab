@@ -38,6 +38,9 @@ export class SESSION implements IMiddleware {
 export class ifLoggedIn implements IMiddleware {
 	public async use(@Req() req: Req, @Res() res: Res, @Session("user") user: Data) {
 		if (user) {
+			if (user.isDesination === "admin") {
+				return res.redirect("/admin");
+			}
 			if (user.isDesination === "doctor") {
 				return res.redirect("/doctor");
 			}
@@ -59,6 +62,18 @@ export class ifNotLoggedIn implements IMiddleware {
 	public async use(@Req() req: Req, @Res() res: Res, @Session("user") user: Data) {
 		if (!user) {
 			return res.redirect("/login");
+		}
+	}
+}
+
+@Middleware()
+export class ifNotAdmin implements IMiddleware {
+	public async use(@Req() req: Req, @Res() res: Res, @Session("user") user: Data) {
+		if (user) {
+			if (user.isDesination != "admin") {
+				req.session.noSystemAccess = true;
+				return res.redirect("/admin");
+			}
 		}
 	}
 }
